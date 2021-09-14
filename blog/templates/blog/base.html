@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-
+{% load static %}<!--Django-->
 <html>
-    {% extends 'blog/base.html' %}
-    {% load static %}
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,7 +20,7 @@
     <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css" />
     <!--コンテンツ用CSS-->
 
-    <!--Django-->
+    
 
     <link rel="shortcut icon" href="/img/favicon.ico"> 
     <link rel="stylesheet" type="text/css" href="/css/main.css">
@@ -40,7 +38,6 @@
 
   </head>
   <body>
-
         <!--wrapper-->
         <div id="wrapper">
             <!--container-->
@@ -50,20 +47,17 @@
                     <h1><a href="/">Django Girls Blog</a></h1>
                 </header>
                 <!--header END-->
-                        {% block content %}
-                            {% for post in posts %}
-                                <div class="post">
-                                    <div class="date">
-                                        {{ post.published_date }}
-                                    </div>
-                                    <h2><a href="">{{ post.title }}</a></h2>
-                                    <p>{{ post.text|linebreaksbr }}</p>
-                                </div>
-                            {% endfor %}
-                        {% endblock %}
+                <div class="content container">
+                    <div class="row">
+                        <div class="col-md-8">
+                            {% block content %}
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
 
                 
-            
+          
                 <!--footer-->
                 <footer>
                     <address>Copyright(C)ここに年 個人名or会社名,Allright Reserved.</address>
