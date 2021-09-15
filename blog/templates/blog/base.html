@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>TDjango Girls blog</title>
+    <!--
     <meta name="description" content="ディスクリプション" />
     
     <meta property="og:type" content="website" />
@@ -16,6 +17,7 @@
     <meta property="og:description" content="ディスクリプション" />
     
     <meta name="robots" content="noarchive">
+    -->
     <!--CSS Reset-->
     <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css" />
     <!--コンテンツ用CSS-->
@@ -25,8 +27,8 @@
     <link rel="shortcut icon" href="/img/favicon.ico"> 
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <!--bootstrap-->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
     <link rel="stylesheet" href="{% static 'css/blog.css' %}"><!--Django-->
 
@@ -43,7 +45,10 @@
             <!--container-->
             <div id="container">
                 <!--header-->
-                <header id="header" class="header">
+                <header id="header" class="page-header">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                    {% endif %}
                     <h1><a href="/">Django Girls Blog</a></h1>
                 </header>
                 <!--header END-->
