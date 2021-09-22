@@ -45,9 +45,9 @@
             <!--container-->
             <div id="container">
                 <!--header-->
-                <header id="header" class="page-header">
+                <header id="header" class="header">
                     {% if user.is_authenticated %}
-                        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                        {% comment %} <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a> {% endcomment %}
                     {% endif %}
                     <h1><a href="/">Django Girls Blog</a></h1>
                 </header>

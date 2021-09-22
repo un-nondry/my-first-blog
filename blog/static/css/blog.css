@@ -1,6 +1,6 @@
-h1 a, h2 a { color: #c25100; font-family: 'Lobster'; }
+h1 a, h2 a { color: hsl(234, 100%, 38%); font-family: 'Lobster'; }
 body { padding-left: 15px; }
-.header { background-color: #C25100; margin-top: 0; padding: 20px 20px 20px 40px; }
+.header { background-color: #00c2c2; margin-top: 0; padding: 20px 20px 20px 40px; }
 .header h1, .header h1 a, .header h1 a:visited, .header h1 a:active { color: #ffffff; font-size: 36pt;
  text-decoration: none; }
 .content { margin-left: 40px; }
