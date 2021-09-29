@@ -2,7 +2,7 @@ from datetime import timezone
 # from re import template
 from django.shortcuts import render
 from django.views.generic.edit import CreateView
-from .models import Post
+from .models import Post, Tag
 from django.views.generic import ListView, DetailView, UpdateView, CreateView
 from django.urls import reverse
 from django.utils import timezone
@@ -22,7 +22,7 @@ class BlogDetail(DetailView):
 class BlogCreate(CreateView):
 
     mode = Post
-    fields = ['title', 'text']
+    fields = ['title', 'text', 'tag']
     
     def get_success_url(self):
         return reverse('detail', kwargs={'pk': self.object.pk})
@@ -31,7 +31,7 @@ class BlogCreate(CreateView):
 class BlogEdit(UpdateView):
     template_naem = "blog/post_from.html"
     model = Post
-    fields = ['title', 'text']
+    fields = ['title', 'text', 'tag']
 
     def get_success_url(self):
         return reverse('detail', kwargs={'pk': self.object.pk})
@@ -40,8 +40,11 @@ class BlogEdit(UpdateView):
         form = super(BlogEdit, self).get_form()
         form.fields['title'].label = 'タイトル'
         form.fields['text'].label = 'テキスト'
+        form.fields['tag'].label = 'タグ'
         # form.author = request.user
         # form.published_date = timezone.now()
         return form
 
+class BlogTag(DetailView):
+    model = Tag
     
